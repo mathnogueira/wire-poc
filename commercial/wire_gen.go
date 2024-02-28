@@ -7,7 +7,7 @@
 package commercial
 
 import (
-	"github.com/mathnogueira/ioc/http"
+	"github.com/mathnogueira/ioc/paidhttp"
 	"github.com/mathnogueira/ioc/paidrepository"
 	"github.com/mathnogueira/ioc/server"
 )
@@ -19,7 +19,7 @@ func GetServer() (*server.Server, error) {
 	if err != nil {
 		return nil, err
 	}
-	controller := http.NewController(userRepository)
+	controller := paidhttp.NewController(userRepository)
 	serverServer := server.NewServer(controller)
 	return serverServer, nil
 }

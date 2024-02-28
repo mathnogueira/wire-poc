@@ -16,17 +16,11 @@ type Server struct {
 
 func NewServer(controller ht.Controller) *Server {
 	s := &Server{
-		router:     mux.NewRouter(),
+		router:     controller.Router(),
 		controller: controller,
 	}
 
-	s.setRoutes()
-
 	return s
-}
-
-func (s *Server) setRoutes() {
-	s.router.HandleFunc("/", s.controller.Greet).Methods("GET")
 }
 
 func (s *Server) Start() {
